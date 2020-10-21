@@ -1,0 +1,17 @@
+---
+
+- hosts: server1
+  gather_facts: no
+
+  handlers:
+    - include: handler2.yml
+
+  tasks:
+    - name: "Install apache2"
+      apt:
+        name: apache2
+        state: present
+      notify: restart apache2
+
+    - {include: include1.yml}
+    - {include: include2.yml}

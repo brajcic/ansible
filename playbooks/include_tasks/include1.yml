@@ -1,0 +1,6 @@
+---
+
+- name: "Delete folder B"
+  file:
+    dest: /home/brajcicansible/Desktop/B
+    state: absent

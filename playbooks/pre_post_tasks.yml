@@ -1,0 +1,34 @@
+---
+
+- hosts: server1
+  become: yes
+
+  pre_tasks:
+
+    - name: "Update apt"
+      apt:
+        state: latest
+
+    - name: "Delete folder bo"
+      file:
+        dest: /home/brajcic/Desktop/bo
+        state: absent
+
+
+  post_tasks:
+
+    - name: "Verify apache2 is started"
+      shell: "systemctl status apache2"
+
+
+  tasks:
+
+    - name: "Install apache"
+      apt:
+        name: apache2
+        state: latest
+
+    - name: "Create a temp folder"
+      file:
+        dest: /home/brajcic/Desktop/bo
+        state: directory

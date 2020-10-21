@@ -1,0 +1,19 @@
+---
+
+- hosts: server1
+  gather_facts: no
+  become: yes
+
+
+  vars_prompt:
+    - name: folder_name
+      prompt: "Enter folder name"
+      private: no
+      register: folder_name
+
+#  tasks:
+#    - debug:
+#        msg: "Hello {{folder_name}}"
+
+  roles:
+    - role: ubuntu_basic_setup

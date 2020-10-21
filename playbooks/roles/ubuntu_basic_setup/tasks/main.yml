@@ -1,0 +1,11 @@
+---
+
+  - name: "Creating folder with name: {{folder_name}}"
+    file:
+      path: /home/brajcicansible/Desktop/{{ folder_name }}
+      state: directory
+
+#  - name: "Echo"
+#    debug:
+#      msg: "hello {{ folder_name }}"
+

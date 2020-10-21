@@ -1,0 +1,12 @@
+---
+
+- hosts: server1
+  gather_facts: no
+  become: yes
+  tasks:
+
+
+    - name: "Clone git repo"
+      git:
+        repo: https://github.com/brajcic/Test.git
+        dest: /home/brajcic/repo

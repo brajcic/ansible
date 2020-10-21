@@ -1,0 +1,15 @@
+---
+
+- hosts: server1
+  gather_facts: no
+  become: yes
+  tasks:
+
+    - name: "Change file content"
+      lineinfile:
+        dest: "/home/brajcic/Desktop/testFile"
+        regexp: "key2="
+        line: "key2=This line is modified by Bojan"
+        state: present
+
+

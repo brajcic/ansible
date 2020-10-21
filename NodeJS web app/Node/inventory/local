@@ -1,0 +1,10 @@
+[local]
+localhost ansible_python_interpreter=/usr/bin/python3
+
+[server1]
+192.168.61.131
+
+
+
+[server1:vars]
+ansible_password=bojan123
