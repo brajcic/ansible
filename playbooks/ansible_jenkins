@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage('Ansible playbook') {
+            steps {
+                ansiblePlaybook becomeUser: 'brajcicansible', credentialsId: 'ansible_key', installation: 'ansible', playbook: 'playbooks/demo.yml'
+
+            }
+        }
+
+    }
+}

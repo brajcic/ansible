@@ -2,8 +2,6 @@
 
 - hosts: server1
   gather_facts: no
-  become: yes
-
 
   vars_prompt:
     - name: folder_name
