@@ -2,7 +2,7 @@
 
   - name: "Creating folder with name: {{folder_name}}"
     file:
-      path: /home/brajcicansible/Desktop/{{ folder_name }}
+      path: /home/jenkins/Desktop/{{ folder_name }}
       state: directory
 
 #  - name: "Echo"
