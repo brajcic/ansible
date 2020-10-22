@@ -14,7 +14,7 @@ pipeline {
 
         stage('Shell ansible') {
             steps {
-                sh 'cd /home/brajcic/IdeaProjects/ansible/playbooks && ansible-playbook demo.yml -u brajcicansible --private-key ~/.ssh/id_rsa'
+                sh 'cd /home/brajcic/IdeaProjects/ansible/playbooks && ansible-playbook user_id.yml'
 
             }
         }

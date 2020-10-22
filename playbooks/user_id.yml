@@ -1,0 +1,12 @@
+---
+
+- hosts: localhost
+  connection: local
+
+
+
+  tasks:
+    - command: id
+      register: results
+    - debug:
+        var: results.stdout
