@@ -1,12 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Ansible playbook') {
+        stage('Git checkout') {
             steps {
-                ansiblePlaybook becomeUser: 'brajcicansible', credentialsId: 'ansible_key', installation: 'ansible', playbook: 'playbooks/demo.yml'
-
+                git 'https://github.com/brajcic/ansible.git'
             }
         }
-
+        stage('Ansible playbook') {
+            steps {
+                ansiblePlaybook credentialsId: 'ansible_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory_playbook/python', playbook: 'playbooks/demo.yml'
+            }
+        }
     }
 }
