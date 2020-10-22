@@ -1,4 +1,9 @@
 192.168.61.131
 
 [server1]
-192.168.61.131 remote_user=brajcicansible host_key_checking=False remote_tmp=/tmp
+192.168.61.131
+
+[server1:vars]
+remote_user=brajcicansible
+host_key_checking=False
+remote_tmp=/tmp
