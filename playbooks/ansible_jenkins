@@ -6,9 +6,16 @@ pipeline {
                 git 'https://github.com/brajcic/ansible.git'
             }
         }
-        stage('Ansible playbook') {
+        //stage('Ansible playbook') {
+        //    steps {
+        //        ansiblePlaybook credentialsId: 'ansible_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory_playbook/python', playbook: 'playbooks/demo.yml'
+        //    }
+        //}
+
+        stage('Shell ansible') {
             steps {
-                ansiblePlaybook credentialsId: 'ansible_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory_playbook/python', playbook: 'playbooks/demo.yml'
+                sh 'cd /home/brajcic/IdeaProjects/ansible/playbooks'
+                sh 'ansible-playbook demo.yml -u brajcicansible --private-key ~/.ssh/id_rsa'
             }
         }
     }
