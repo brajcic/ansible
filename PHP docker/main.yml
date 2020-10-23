@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: "Create a php docker image"
+      docker_image:
+        build:
+          path: Php
+          pull: yes
+        name: php_docker
+        state: present
+
+    - name: "Run container"
+      docker_container:
+        image: php_docker
+        name: php_docker_container
+        state: started
+        ports:
+          - "8888:1111"

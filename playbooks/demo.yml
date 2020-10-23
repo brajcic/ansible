@@ -3,6 +3,10 @@
 - hosts: server1
 
   tasks:
+    - command: id
+      register: results
+    - debug:
+        var: results.stdout
     - name: "Install apache2 service"
       apt:
         name: apache2
